@@ -1,0 +1,94 @@
+### CREATE five documents.
+POST http://localhost:3000/chargingSessions HTTP/1.1
+content-type: application/json
+
+{
+    "time": "2023-08-08T23:58:18Z", 
+    "durationInSeconds": 1980, 
+    "address": "83 Beatty St., Vancouver, BC.",
+    "kwh": 24,
+    "pricePerKwh": 0.45
+}
+
+
+### CREATE 2
+POST http://localhost:3000/chargingSessions HTTP/1.1
+content-type: application/json
+
+{
+    "time": "2022-01-02T13:34:13Z", 
+    "durationInSeconds": 498, 
+    "address": "22 Lombard Blvd., Toronto, ON.",
+    "kwh": 12,
+    "pricePerKwh": 0.22
+}
+
+### CREATE 3
+POST http://localhost:3000/chargingSessions HTTP/1.1
+content-type: application/json
+
+{
+    "time": "2021-05-02T08:14:28Z", 
+    "durationInSeconds": 983, 
+    "address": "87th Ontario Rd., Ottawa, ON.",
+    "kwh": 33,
+    "pricePerKwh": 0.17
+}
+
+### CREATE 4
+POST http://localhost:3000/chargingSessions HTTP/1.1
+content-type: application/json
+
+{
+    "time": "2022-07-22T17:34:14Z", 
+    "durationInSeconds": 99, 
+    "address": "17 Oregon Ave., Vancouver, BC.",
+    "kwh": 20,
+    "pricePerKwh": 0.29
+}
+
+### CREATE 5
+POST http://localhost:3000/chargingSessions HTTP/1.1
+content-type: application/json
+
+{
+    "time": "2023-02-22T22:34:11Z", 
+    "durationInSeconds": 779, 
+    "address": "34th Quebec St., Montrea, QC.",
+    "kwh": 0.02,
+    "pricePerKwh": 0.11
+}
+
+
+### RETRIEVE all documents.
+GET http://localhost:3000/chargingSessions HTTP/1.1
+
+
+
+### RETRIEVE a document by its ID.
+### Replace the following ID with one that exists in the collection.
+GET http://localhost:3000/chargingSessions/64d7dba7d4ee32836bafb5a5 HTTP/1.1
+
+
+### UPDATE one document's year, by ID.
+### Replace the ID in the following request with one that exists
+### and update the year:
+PUT http://localhost:3000/chargingSessions/64d7dba7d4ee32836bafb5a5 HTTP/1.1
+content-type: application/json
+
+{
+    "time": "2022-01-02T13:34:13Z", 
+    "durationInSeconds": 2998, 
+    "address": "34th Quebec St., Montrea, QC.",
+    "kwh": 52,
+    "pricePerKwh": 0.22
+}
+
+### DELETE by ID (responds with nothing if successful):
+DELETE http://localhost:3000/chargingSessions/64d7db788b95d4113495f07f HTTP/1.1
+
+
+
+### RETRIEVE all documents (responds with 4 or the original 5):
+GET http://localhost:3000/chargingSessions HTTP/1.1
+

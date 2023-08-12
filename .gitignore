@@ -128,3 +128,6 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+a8-almalehb-portfolio/frontend/.DS_Store
+a8-almalehb-portfolio/.DS_Store
+.DS_Store
