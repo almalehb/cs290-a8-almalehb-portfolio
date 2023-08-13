@@ -1,0 +1,19 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+// Change the function names and links
+// to fit your portfolio topic.
+
+function PageNavigation() {
+  return (
+    <nav>
+        <Link to="/">Home</Link>
+        <Link to="../contact">Contact Us</Link>
+        <Link to="../gallery">Gallery</Link>
+        <Link to="../order">Order</Link>
+        <Link to="../charging">EV Charging Sessions</Link>
+    </nav>
+  );
+}
+
+export default PageNavigation;

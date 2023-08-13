@@ -6,40 +6,532 @@ but not for an assignment.
 /* Center the body in the middle of the viewport 
 by defining min and max widths with auto right/left margins
 */
+
+/*   ----- Imports  -----  */
+/* Add fonts from the app's server 
+    @font-face {                
+      font-family: 'FontName';
+      src: url('FontName.woff2') format('woff2');
+    } 
+    ...or hosted services like Google Fonts 
+    @import url(//fonts.googleapis.com/css?family=Font+Name);
+  */
+
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+  
+
+/* @import 'node_modules/modern-normalize/modern-normalize.css'; */
+/* npm install modern-normalize
+          Resets elements for browser consistency.  
+          https://www.npmjs.com/package/modern-normalize
+        */
+
+/* Component-specific stylesheets, if any. 
+    @import "component1.css";   
+  */
+
+/*   ----- Variables  -----  */
+:root {
+    /*
+    --custom-color-name: ;
+    --custom-embellishment-name: ;
+    */
+    
+    --light-background-color: #cbdbe6dd; 
+    --light-footer-background-color: #c1f6d9d0; 
+    --light-highlight-color: #E8C935;
+    --light-secondary-text-color: #848c46;
+    --light-text-color: #485101; 
+    --light-border-color: #282e00; 
+    --light-nav-background: #68625621;
+    --light-nav-local-background: #8f846c24;
+
+    --medium-background-color: #c0cddadc; 
+    --medium-footer-background-color: #afdec4d0; 
+    --medium-highlight-color: #c9af2e;
+    --medium-secondary-text-color: #566302;
+    --medium-text-color: #303701; 
+    --medium-border-color: #151800; 
+    --medium-required-color: rgb(214, 40, 31);
+    --medium-nav-background: #59544a1c;
+    --medium-nav-local-background: #7a705c25;
+
+    --dark-background-color: #8b9aa7df; 
+    --dark-footer-background-color: #98c2abd0; 
+    --dark-highlight-color: #a89017;
+    --dark-secondary-text-color: #384001;
+    --dark-text-color: #121400; 
+    --dark-border-color: #0d1000; 
+    --dark-nav-background: #413d3627;
+    --dark-nav-local-background: #5a534429;
+}
+
+/*  ----- Viewport ----- elements inherited by all remaining elements ----- */
 body {
-margin:0 auto;
-width:500px;
-border:1px solid gray;
-padding:4%;
+    /* Can alternatively define in html {} or :root {} */
+    
+    background-image: url(images/background-half-moon-bay.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-color: var(--medium-background-color);
+    
+    color: var(--medium-text-color); 
+    font-family: 'Roboto', sans-serif;
+    /* Define with at least one font name and its related generic family name.*/
+    margin: 0 2%;
+    padding: 0;
+    max-width: 95%;
 }
 
-/* PAGE LAYOUT 
-Consistant design for each page layout block. 
-*/
-header, main, article, footer {
-    border-bottom:2px solid gray;
+/*  ----- Page layout blocks -----  */
+header {
+  color: var(--header-text-color);
+  background-color: var(--medium-background-color);
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid var(--medium-border-color);
+  text-align: center;
 }
 
-/* NAVIGATION
-Simple changes to make anchors look like buttons. 
-*/
-nav {}
-nav a {margin-right:3%;}
+header img {
+  height: 40px; 
+  width: auto; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main {
+  color: var(--main-text-color);
+  background-color: var(--medium-background-color);
+  margin: 20px;
+  padding: 20px;
+  border: 1px dotted var(--medium-border-color);
+}
+
+section {}
+
+article {}
+
+#topic1 {}
+
+#topic2 {}
+
+div {}
+
+aside {}
+
+footer {
+  color: var(--footer-text-color);
+  background-color: var(--medium-footer-background-color);
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #000000d7;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+footer .copyright {
+  color: var(--medium-secondary-text-color);
+  padding: 10px;
+}
+
+/* ----- Anchors ----- Text links */
+a {}
+
+a:link {}
+
+a:hover {}
+
+a:active {}
+
+a:visited {}
+
+/*  ----- Navigation ----- Override text links for navigation only.  */
+nav {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 10px 0; 
+}
+
+#pages { 
+  display: flex;
+  justify-content: center;
+}
+
+nav a { 
+  text-decoration:none;
+  padding: 12px; 
+  margin: 0 6px; 
+  border-radius: 12px;
+  border: 3px outset var(--medium-border-color);
+  background-color: var(--medium-nav-background);
+}
+
+nav.local { 
+  display: flex; 
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+nav.local a { 
+  font-size: 1em;
+  padding: 10px; 
+  margin: 10px 0; 
+  border-radius: 12px;
+  border: 5px double var(--medium-border-color);
+  background-color: var(--medium-nav-local-background);
+}
+
 nav a:hover {}
 
-/* TABLE */
+/*  -----  Typography  ----- */
+p {}
+
+br {}
+
+ol,
+ul,
+dl {}
+
+li {}
+
+dt {}
+
+dd {}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Oswald', sans-serif;
+}
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+h4 {}
+
+h5 {}
+
+h6 {}
+
+abbr {}
+
+acronym {}
+
+address {}
+
+blockquote {}
+
+q {}
+
+cite {}
+
+em {}
+
+hr {}
+
+mark {}
+
+s {}
+
+span {}
+
+strong {}
+
+sub {}
+
+sup {}
+
+time {}
+
+/*  ----- Coding or instructional typography ----- */
+pre {}
+
+code {}
+
+kbd {}
+
+samp {}
+
+var {}
+
+del {}
+
+ins {}
+
+/*  ----- Table ----- */
 table {}
+
 caption {}
-tr td, td th {border-bottom:1px dotted whitesmoke;}
-tr:nth-child(even){}
+
+thead {}
+
+tbody {}
+
+tfoot {}
+
+tr {}
+
+tr:nth-child(even) {}
+
 th {}
 
+td {}
 
-/* FORM */
-fieldset {}
-legend {}
-label {display:block;margin-top:3%;}
-input {}
+table caption { 
+  padding: 15px; 
+  font-weight: bold;
+}
+
+td, th {
+  padding: 10px;
+}
+
+td:nth-child(1) {}
+
+colgroup {}
+
+data {}
+
+datalist {}
+
+
+/*  ----- Form ----- */
+form {
+  font-family: inherit;
+  font-size: 1.2em;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+fieldset {
+  border-radius: 10px;
+  border: 2px dotted var(--medium-border-color);
+  min-width: 390px;
+  flex: 1;
+  margin: 10px;
+  margin-bottom: 10px;
+}
+
+.required { 
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+#fullName { 
+  padding: 10px;
+  font-size: 1.1em;
+  min-width: 240px;
+}
+
+#email { 
+  padding: 10px;
+  font-size: 1.1em;
+  min-width: 240px;
+}
+
+label.required::after { 
+  content: " *";
+  color: var(--medium-required-color)
+}
+
+fieldset textarea { 
+  min-width: 380px;
+  min-height: 200px;
+  padding: 10px;
+  font-size: 1.2em;
+}
+
+#ratings { 
+  margin-bottom: 10px;
+}
+
+#ratings label { 
+  margin-right: 15px;
+}
+
+#mode { 
+  font-size: 1.1em;
+  padding: 5px;
+}
+
+#modeLabel { 
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.improvements { 
+  display: block;
+  margin-bottom: 10px;
+}
+
+button, input, select, textarea { 
+  font-family: inherit;
+  padding: 1%;
+}
+
+fieldset label button { 
+  display: block; 
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-left: auto; 
+  margin-right: auto;
+  border-radius: 12px; 
+  font-weight: bold;
+  font-size: 1.2em;
+  color: var(--medium-secondary-text-color);
+}
+
+legend {
+  font-weight: bold;
+}
+
+form table { 
+  margin-bottom: 30px;
+}
+
+#amount { 
+  margin: 10px; 
+  font-size: 1.1em;
+  padding: 10px; 
+}
+
+label {}
+
 button {}
-button:hover {}
 
+input {}
+
+output {}
+
+meter {}
+
+progress {}
+
+select {}
+
+optgroup {}
+
+option {}
+
+textarea {}
+
+/* ----- Media ----- */
+figure {}
+
+figcaption {}
+
+figure img {}
+
+svg {}
+
+picture {}
+
+source {}
+
+iframe {}
+
+video {}
+
+audio {}
+
+embed {}
+
+object {}
+
+/*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.gallery figure { 
+  flex: 0 1 350px; 
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  margin: 10px;
+  border: 1px solid var(--medium-border-color);
+  background-color: var(--medium-background-color);
+  padding: 10px; 
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.gallery figure img { 
+  width: 100%;
+  height: auto; 
+  object-fit: contain;
+}
+
+.gallery figcaption { 
+  color: var(--medium-text-color);
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.floatright {}
+
+.floatleft {}
+
+.center-middle {}
+
+.ten {}
+
+.twenty {}
+
+.thirty {}
+
+.forty {}
+
+.fifty {}
+
+.sixty {}
+
+.seventy {}
+
+.eighty {}
+
+.radius {}
+
+.circle {}
+
+.boxshadow {}
+
+.tshadow {}
+
+.gradient {}
+
+.shape {}
+
+@keyframes App-logo {}
+
+/*   ===== TABLET  media query overrides mobile styles ===== */
+@media all and (min-width: 600px) {}
+
+/*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+@media all and (min-width: 1080px) {}
+
+/*   ===== PRINT  media query overrides previous styles =====  */
+@media print {}

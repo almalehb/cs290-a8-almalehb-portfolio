@@ -3,13 +3,20 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Import Components, styles, media
-import Navigation from './components/Navigation';
+import PageNavigation from './components/PageNavigation';
 import './App.css';
 
 // Import Pages (but only the ones you need).
 // For Create and Edit, use the form OR table design; not both.
 // If your schema requires LONG data input, then use the FORM design.
 // If your schema requires SHORT data input, then use the TABLE design.
+
+import Products from './data/products';
+// import HomePage from './pages/HomePage';
+// import TopicPage from './pages/TopicPage';
+// import GalleryPage from './pages/GalleryPage';
+// import OrderPage from './pages/OrderPage';
+// import ContactPage from './pages/ContactPage';
 
 import MoviesPage from './pages/MoviesPage';
 import AddMoviePageForm from './pages/AddMoviePageForm';
@@ -31,7 +38,7 @@ function App() {
             <p>Describe this collection.</p>
           </header>
 
-          <Navigation />
+          <PageNavigation />
 
           <main>
             <section>
