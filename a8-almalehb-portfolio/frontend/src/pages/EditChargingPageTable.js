@@ -1,41 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState }  from 'react';
 import { useNavigate } from "react-router-dom";
 
-// Change the icons, function names, and parameters 
-// to fit your portfolio topic and schema.
-
-export const AddMoviePageTable = () => {
-
-    const [title, setTitle]       = useState('');
-    const [year, setYear]         = useState('');
-    const [language, setLanguage] = useState('');
+export const EditChargingPageTable = ({ movieToEdit }) => {
+ 
+    const [title, setTitle]       = useState(movieToEdit.title);
+    const [year, setYear]         = useState(movieToEdit.year);
+    const [language, setLanguage] = useState(movieToEdit.language);
     
     const redirect = useNavigate();
 
-    const addMovie = async () => {
-        const newMovie = { title, year, language };
-        const response = await fetch('/movies', {
-            method: 'post',
-            body: JSON.stringify(newMovie),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+    const editMovie = async () => {
+        const response = await fetch(`/movies/${movieToEdit._id}`, {
+            method: 'PUT',
+            body: JSON.stringify({ 
+                title: title, 
+                year: year, 
+                language: language
+            }),
+            headers: {'Content-Type': 'application/json',},
         });
-        if(response.status === 201){
-            alert(`helpful adding message`);
+
+        if (response.status === 200) {
+            alert(`helpful editing message`);
         } else {
-            alert(`helpful adding message = ${response.status}`);
+            const errMessage = await response.json();
+            alert(`helpful editing message ${response.status}. ${errMessage.Error}`);
         }
         redirect("/");
-    };
-
+    }
 
     return (
         <>
         <article>
-            <h2>Add a movie</h2>
+            <h2>Edit a movie</h2>
             <p>Paragraph about this page.</p>
-            
             <table id="movies">
                 <caption>Which movie are you adding?</caption>
                 <thead>
@@ -78,16 +76,15 @@ export const AddMoviePageTable = () => {
                     <label for="submit">Commit</label>
                         <button
                             type="submit"
-                            onClick={addMovie}
+                            onClick={editMovie}
                             id="submit"
-                        >Add</button>
+                        >Edit</button>
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </article>
-    </>
-);
+            </article>
+        </>
+    );
 }
-
-export default AddMoviePageTable;
+export default EditChargingPageTable;

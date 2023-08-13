@@ -14,7 +14,7 @@ function ChargingSession({ chargingSession, onEdit, onDelete }) {
     return (
         <tr>
             <td>{chargingSession.time}</td>
-            <td>{chargingSession.duration}</td>
+            <td>{chargingSession.durationInSeconds}</td>
             <td>{chargingSession.address}</td>
             <td>{chargingSession.pricePerKwh}</td>
             <td>{totalKwh}</td>
