@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
+import { FaPen } from "react-icons/fa6";
+
 export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
 
     const [time, setTime] = useState(chargingSessionToEdit.time);
@@ -16,12 +18,12 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
     const redirect = useNavigate();
 
     useEffect(() => {
-        let durationResult = 0; 
-        if (durationUnits === "hours") { 
+        let durationResult = 0;
+        if (durationUnits === "hours") {
             durationResult = duration * 60 * 60
         } else if (durationUnits === "minutes") {
             durationResult = duration * 60
-        } else { 
+        } else {
             durationResult = duration
         }
         setDurationInSeconds(durationResult);
@@ -72,7 +74,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                     type="date"
                                     placeholder={chargingSessionToEdit.time}
                                     value={time}
-                                    onChange={e => setTime(e.target.value.slice(0,10))}
+                                    onChange={e => setTime(e.target.value.slice(0, 10))}
                                     id="time" />
                             </td>
 
@@ -100,7 +102,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                     onChange={e => setAddress(e.target.value)}
                                     id="Address" />
                             </td>
-                            
+
                             <td>
                                 <input
                                     type="number"
@@ -124,11 +126,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
 
                             <td>
 
-                                <button
-                                    type="submit"
-                                    onClick={editChargingSession}
-                                    id="submit"
-                                >Edit</button>
+                                <FaPen className="faIconButton" onClick={editChargingSession} />
                             </td>
                         </tr>
                     </tbody>

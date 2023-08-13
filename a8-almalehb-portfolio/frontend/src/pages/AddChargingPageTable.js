@@ -33,9 +33,7 @@ export const AddChargingPageTable = () => {
 
     const addChargingSession = async () => {
 
-        const totalPrice = durationInSeconds * pricePerKwh;
-
-        const newChargingSession = { time, durationInSeconds, address, kwh };
+        const newChargingSession = { time, durationInSeconds, address, kwh, pricePerKwh };
         const response = await fetch('/chargingSessions', {
             method: 'post',
             body: JSON.stringify(newChargingSession),
@@ -124,7 +122,9 @@ export const AddChargingPageTable = () => {
                             </td>
 
                             <td>
-                                <FaCirclePlus id="addChargingButton" onClick={addChargingSession} />
+                                <FaCirclePlus 
+                                className="faIconButton"
+                                id="addChargingButton" onClick={addChargingSession} />
                             </td>
                         </tr>
                     </tbody>

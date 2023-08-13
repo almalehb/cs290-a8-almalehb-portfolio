@@ -53,6 +53,7 @@ by defining min and max widths with auto right/left margins
     --medium-text-color: #303701; 
     --medium-border-color: #151800; 
     --medium-required-color: rgb(214, 40, 31);
+    --medium-delete-color: rgb(181, 12, 3);
     --medium-nav-background: #59544a1c;
     --medium-nav-local-background: #7a705c25;
 
@@ -530,31 +531,49 @@ object {}
   width: 30px;
   height: 30px;
   padding: 10px;
+}
+
+.faIconButton { 
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 }
 
-#chargingSessions { 
+#chargingSessionsTable { 
   border: 2px dotted var(--medium-border-color);
   border-radius: 10px;
   padding: 5px;
   text-align: center;
 }
 
-#chargingSessions td {
+#chargingSessionsTable td {
   text-align: center;
+  white-space: normal;
 }
 
-#chargingSessions td:first-child {
+#chargingSessionsTable td:first-child {
   text-align: left;
 }
 
-#chargingSessions input[type="text"] {
+#chargingSessionsTable input[type="text"] {
   min-width: 200px;
+}
+
+.add-session-container { 
+  display: flex;     
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .charge-duration-container {
   display: flex;
   align-items: center;
+}
+
+.sessionDeleteButton { 
+  color: var(--medium-delete-color);
 }
 
 .charge-duration,

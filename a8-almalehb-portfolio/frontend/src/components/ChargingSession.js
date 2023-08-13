@@ -25,8 +25,8 @@ function ChargingSession({ chargingSession, onEdit, onDelete }) {
             <td>$ {chargingSession.pricePerKwh.toFixed(2)}</td>
             <td>{chargingSession.kwh.toFixed(2)}</td>
             <td>$ {totalPrice.toFixed(2)}</td>
-            <td><FaPen onClick={() => onEdit(chargingSession)} /></td>
-            <td><FaTrash onClick={() => onDelete(chargingSession._id)} /></td>
+            <td><FaPen className="faIconButton" onClick={() => onEdit(chargingSession)} /></td>
+            <td><FaTrash className="faIconButton sessionDeleteButton" onClick={() => onDelete(chargingSession._id)} /></td>
         </tr>
     );
 }

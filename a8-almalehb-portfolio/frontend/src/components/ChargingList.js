@@ -7,8 +7,14 @@ import { FaCirclePlus } from "react-icons/fa6";
 
 function ChargingList({ chargingSessions, onCreate, onDelete, onEdit }) {
     return (
-        <table id="chargingSessions">
-            <caption>Add new sessions or edit existing charging sessions</caption>
+        <table id="chargingSessionsTable">
+            <caption>Add new sessions or edit existing charging sessions.
+                <div className="add-session-container" onClick={onCreate}>
+                    <span>Add Session</span>
+                    <FaCirclePlus id="addChargingButton"
+                        className="faIconButton" />
+                </div>
+            </caption>
             <thead>
                 <tr>
                     <th>Time</th>
@@ -19,18 +25,15 @@ function ChargingList({ chargingSessions, onCreate, onDelete, onEdit }) {
                     <th>Total Price</th>
                     <th>Edit</th>
                     <th>Delete</th>
-                    <th>
-                        <FaCirclePlus id="addChargingButton" onClick={onCreate} />
-                    </th>
                 </tr>
             </thead>
             <tbody>
-                {chargingSessions.map((chargingSession, i) => 
-                    <ChargingSession 
-                        chargingSession={chargingSession} 
+                {chargingSessions.map((chargingSession, i) =>
+                    <ChargingSession
+                        chargingSession={chargingSession}
                         key={i}
                         onDelete={onDelete}
-                        onEdit={onEdit} 
+                        onEdit={onEdit}
                     />)}
             </tbody>
         </table>

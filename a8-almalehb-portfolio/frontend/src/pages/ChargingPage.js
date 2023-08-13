@@ -49,8 +49,8 @@ function ChargingPage({ setChargingSession }) {
     // DISPLAY the charging sessions
     return (
         <>
-            <h2>List of Charging Sessions</h2>
-            <p>This table displays your EV Charging history.</p>
+            <h2>List of EV Charging Sessions</h2>
+            <p>This table displays your charging history.</p>
             <ChargingList 
                 chargingSessions={chargingSessions} 
                 onCreate={onCreateChargingSession}
