@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function PageNavigation() {
   return (
-    <nav>
+    <nav id="pages">
         <Link to="/">Home</Link>
         <Link to="../topics">Topics</Link>
         <Link to="../gallery">Gallery</Link>

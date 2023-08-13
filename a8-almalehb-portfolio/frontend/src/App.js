@@ -17,9 +17,8 @@ import TopicPage from './pages/TopicPage';
 import GalleryPage from './pages/GalleryPage';
 import OrderPage from './pages/OrderPage';
 import ContactPage from './pages/ContactPage';
-import ChargingPage from './pages/MoviesPage';
+import ChargingPage from './pages/ChargingPage';
 
-import MoviesPage from './pages/MoviesPage';
 import AddMoviePageForm from './pages/AddMoviePageForm';
 import AddMoviePageTable from './pages/AddMoviePageTable';
 import EditMoviePageForm from './pages/EditMoviePageForm';
