@@ -1,59 +1,59 @@
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import MovieList from '../components/MovieList';
+import ChargingList from '../components/ChargingList';
 
-function MoviesPage({ setMovie }) {
+function ChargingPage({ setChargingSession }) {
+    
     // Use the Navigate for redirection
     const redirect = useNavigate();
 
     // Use state to bring in the data
-    const [movies, setMovies] = useState([]);
+    const [chargingSessions, setChargingSessions] = useState([]);
 
-    // RETRIEVE the entire list of movies
-    const loadMovies = async () => {
-        const response = await fetch('/movies');
-        const movies = await response.json();
-        setMovies(movies);
+    // RETRIEVE the entire list of chargingSession
+    const loadChargingSessions = async () => {
+        const response = await fetch('/chargingSessions');
+        const chargingSessions = await response.json();
+        setChargingSessions(chargingSessions);
     } 
     
 
-    // UPDATE a single movie
-    const onEditMovie = async movie => {
-        setMovie(movie);
+    // UPDATE a single chargingSession
+    const onEditChargingSession = async chargingSession => {
+        setChargingSession(chargingSession);
         redirect("/update");
     }
 
-
-    // DELETE a single movie  
-    const onDeleteMovie = async _id => {
-        const response = await fetch(`/movies/${_id}`, { method: 'DELETE' });
+    // DELETE a single chargingSession  
+    const onDeleteChargingSession = async _id => {
+        const response = await fetch(`/chargingSessions/${_id}`, { method: 'DELETE' });
         if (response.status === 204) {
-            const getResponse = await fetch('/movies');
-            const movies = await getResponse.json();
-            setMovies(movies);
+            const getResponse = await fetch('/chargingSessions');
+            const chargingSessions = await getResponse.json();
+            setChargingSessions(chargingSessions);
         } else {
-            console.error(`helpful deletion message = ${_id}, status code = ${response.status}`)
+            console.error(`Unable to delete session with ID = ${_id}, received status code = ${response.status}`)
         }
     }
 
-    // LOAD all the movies
+    // LOAD all the charging sessions
     useEffect(() => {
-        loadMovies();
+        loadChargingSessions();
     }, []);
 
-    // DISPLAY the movies
+    // DISPLAY the charging sessions
     return (
         <>
-            <h2>List of Movies</h2>
-            <p>Paragraph about this page.</p>
-            <MovieList 
-                movies={movies} 
-                onEdit={onEditMovie} 
-                onDelete={onDeleteMovie} 
+            <h2>List of Charging Sessions</h2>
+            <p>This table displays your EV Charging history.</p>
+            <ChargingList 
+                chargingSessions={chargingSessions} 
+                onEdit={onEditChargingSession} 
+                onDelete={onDeleteChargingSession} 
             />
         </>
     );
 }
 
-export default MoviesPage;
+export default ChargingPage;

@@ -8,10 +8,11 @@ function PageNavigation() {
   return (
     <nav>
         <Link to="/">Home</Link>
-        <Link to="../contact">Contact Us</Link>
+        <Link to="../topics">Topics</Link>
         <Link to="../gallery">Gallery</Link>
+        <Link to="../contact">Contact Us</Link>
         <Link to="../order">Order</Link>
-        <Link to="../charging">EV Charging Sessions</Link>
+        <Link to="../charging">EV Charging</Link>
     </nav>
   );
 }

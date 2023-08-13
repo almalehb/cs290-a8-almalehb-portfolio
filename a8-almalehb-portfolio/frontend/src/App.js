@@ -12,11 +12,12 @@ import './App.css';
 // If your schema requires SHORT data input, then use the TABLE design.
 
 import Products from './data/products';
-// import HomePage from './pages/HomePage';
-// import TopicPage from './pages/TopicPage';
-// import GalleryPage from './pages/GalleryPage';
-// import OrderPage from './pages/OrderPage';
-// import ContactPage from './pages/ContactPage';
+import HomePage from './pages/HomePage';
+import TopicPage from './pages/TopicPage';
+import GalleryPage from './pages/GalleryPage';
+import OrderPage from './pages/OrderPage';
+import ContactPage from './pages/ContactPage';
+import ChargingPage from './pages/MoviesPage';
 
 import MoviesPage from './pages/MoviesPage';
 import AddMoviePageForm from './pages/AddMoviePageForm';
@@ -27,34 +28,40 @@ import EditMoviePageTable from './pages/EditMoviePageTable';
 // Define the function that renders the content in Routes, using State.
 function App() {
 
-  const [movie, setMovieToEdit] = useState([])
+  const [chargingSession, setChargingSessionToEdit] = useState([])
 
   return (
     <>
       <BrowserRouter>
 
-          <header>
-            <h1>Movie Collection</h1>
-            <p>Describe this collection.</p>
-          </header>
+        <header>
+          <img src="android-chrome-192x192.png" alt="Besher Al Maleh"></img>
+          <h1>Besher Al Maleh</h1>
+          <p>Web development fundamentals, including HTML, CSS, and JavaScript.</p>
+        </header>
 
-          <PageNavigation />
+        <PageNavigation />
 
-          <main>
-            <section>
-                <Routes> 
-                    <Route path="/" element={<MoviesPage setMovie={setMovieToEdit}/>} />
-                    {/* <Route path="/create" element={<AddMoviePageForm />} />  */}
-                    <Route path="/create" element={<AddMoviePageTable />} /> 
-                    {/* <Route path="/update" element={<EditMoviePageForm movieToEdit={movie} />} /> */}
-                    <Route path="/update" element={<EditMoviePageTable movieToEdit={movie} />} />
-                </Routes>
-              </section>
-          </main>
+        <main>
+          <section>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/order" element={<OrderPage />} />
+              <Route path="/topics" element={<TopicPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/charging" element={<ChargingPage setChargingSession={setChargingSessionToEdit} />} />
+              {/* <Route path="/create" element={<AddMoviePageForm />} />  */}
+              <Route path="/create" element={<AddMoviePageTable />} />
+              {/* <Route path="/update" element={<EditMoviePageForm movieToEdit={movie} />} /> */}
+              <Route path="/update" element={<EditMoviePageTable chargingSessionToEdit={chargingSession} />} />
+            </Routes>
+          </section>
+        </main>
 
-          <footer>
-            <p>Copyright statement</p>
-          </footer>
+        <footer>
+          &copy; 2023 Besher Al Maleh
+        </footer>
 
       </BrowserRouter>
     </>

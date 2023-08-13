@@ -4,7 +4,7 @@ import Movie from './Movie';
 // Change the function names and parameters 
 // to fit your portfolio topic and schema.
 
-function MovieList({ movies, onDelete, onEdit }) {
+function ChargingList({ movies, onDelete, onEdit }) {
     return (
         <table id="movies">
             <caption>Add and Edit Movies</caption>
@@ -30,4 +30,4 @@ function MovieList({ movies, onDelete, onEdit }) {
     );
 }
 
-export default MovieList;
+export default ChargingList;
