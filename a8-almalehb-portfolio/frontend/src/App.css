@@ -430,7 +430,8 @@ optgroup {}
 
 option {}
 
-textarea {}
+textarea {
+}
 
 /* ----- Media ----- */
 figure {}
@@ -536,6 +537,10 @@ object {}
   border: 2px dotted var(--medium-border-color);
   border-radius: 10px;
   padding: 5px;
+}
+
+#chargingSessions input[type="text"] {
+  min-width: 200px;
 }
 
 .charge-duration-container {

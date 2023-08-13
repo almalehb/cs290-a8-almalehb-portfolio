@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 // Change the icons, function names, and parameters 
 // to fit your portfolio topic and schema.
+import { FaCirclePlus } from "react-icons/fa6";
 
 export const AddChargingPageTable = () => {
 
@@ -19,12 +20,12 @@ export const AddChargingPageTable = () => {
     const redirect = useNavigate();
 
     useEffect(() => {
-        let durationResult = 0; 
-        if (durationUnits === "hours") { 
+        let durationResult = 0;
+        if (durationUnits === "hours") {
             durationResult = duration * 60 * 60
         } else if (durationUnits === "minutes") {
             durationResult = duration * 60
-        } else { 
+        } else {
             durationResult = duration
         }
         setDurationInSeconds(durationResult);
@@ -54,7 +55,6 @@ export const AddChargingPageTable = () => {
             <article>
                 <h2>Add a charging session</h2>
                 <p>Tell us about your new charging session.</p>
-                <p>Current duration in seconds: {durationInSeconds}</p>
                 <table id="chargingSessions">
                     <caption>Enter the details for the session.</caption>
                     <thead>
@@ -85,7 +85,7 @@ export const AddChargingPageTable = () => {
                                         min={0}
                                         onChange={e => setDuration(e.target.value)}
                                         className="charge-duration" />
-                                    <select className="time-unit-select" onChange={e => setDurationUnits(e.target.value)}> 
+                                    <select className="time-unit-select" onChange={e => setDurationUnits(e.target.value)}>
                                         <option value="seconds">Seconds</option>
                                         <option value="minutes">Minutes</option>
                                         <option value="hours">Hours</option>
@@ -123,12 +123,7 @@ export const AddChargingPageTable = () => {
                             </td>
 
                             <td>
-
-                                <button
-                                    type="submit"
-                                    onClick={addChargingSession}
-                                    id="submit"
-                                >Add</button>
+                                <FaCirclePlus id="addChargingButton" onClick={addChargingSession} />
                             </td>
                         </tr>
                     </tbody>
