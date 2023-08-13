@@ -12,7 +12,7 @@ function ChargingList({ chargingSessions, onCreate, onDelete, onEdit }) {
             <thead>
                 <tr>
                     <th>Time</th>
-                    <th>Duration</th>
+                    <th>Duration (Minutes)</th>
                     <th>Address</th>
                     <th>Price per KwH</th>
                     <th>Total kWh</th>

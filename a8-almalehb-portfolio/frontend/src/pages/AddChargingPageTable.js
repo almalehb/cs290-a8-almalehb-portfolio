@@ -63,8 +63,8 @@ export const AddChargingPageTable = () => {
                             <th>Time</th>
                             <th>Duration</th>
                             <th>Address</th>
-                            <th>kWh</th>
                             <th>Price per kWh</th>
+                            <th>kWh</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -106,21 +106,21 @@ export const AddChargingPageTable = () => {
                             <td>
                                 <input
                                     type="number"
-                                    placeholder="Kilowatt-hour amount."
-                                    value={kwh}
-                                    min={0}
-                                    onChange={e => setKwh(e.target.value)}
-                                    id="kwh" />
-                            </td>
-
-                            <td>
-                                <input
-                                    type="number"
                                     placeholder="Price per kilowatt-hour."
                                     value={pricePerKwh}
                                     min={0}
                                     onChange={e => setPricePerKwh(e.target.value)}
                                     id="pricePerKwh" />
+                            </td>
+
+                            <td>
+                                <input
+                                    type="number"
+                                    placeholder="Kilowatt-hour amount."
+                                    value={kwh}
+                                    min={0}
+                                    onChange={e => setKwh(e.target.value)}
+                                    id="kwh" />
                             </td>
 
                             <td>

@@ -537,6 +537,15 @@ object {}
   border: 2px dotted var(--medium-border-color);
   border-radius: 10px;
   padding: 5px;
+  text-align: center;
+}
+
+#chargingSessions td {
+  text-align: center;
+}
+
+#chargingSessions td:first-child {
+  text-align: left;
 }
 
 #chargingSessions input[type="text"] {

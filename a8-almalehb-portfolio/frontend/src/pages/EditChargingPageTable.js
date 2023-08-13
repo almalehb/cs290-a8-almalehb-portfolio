@@ -61,8 +61,8 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                             <th>Time</th>
                             <th>Duration</th>
                             <th>Address</th>
-                            <th>kWh</th>
                             <th>Price per kWh</th>
+                            <th>kWh</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,6 +100,16 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                     onChange={e => setAddress(e.target.value)}
                                     id="Address" />
                             </td>
+                            
+                            <td>
+                                <input
+                                    type="number"
+                                    placeholder={chargingSessionToEdit.pricePerKwh}
+                                    value={pricePerKwh}
+                                    min={0}
+                                    onChange={e => setPricePerKwh(e.target.value)}
+                                    id="pricePerKwh" />
+                            </td>
 
                             <td>
                                 <input
@@ -111,15 +121,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                     id="kwh" />
                             </td>
 
-                            <td>
-                                <input
-                                    type="number"
-                                    placeholder={chargingSessionToEdit.pricePerKwh}
-                                    value={pricePerKwh}
-                                    min={0}
-                                    onChange={e => setPricePerKwh(e.target.value)}
-                                    id="pricePerKwh" />
-                            </td>
+
                             <td>
 
                                 <button
