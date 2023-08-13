@@ -4,7 +4,6 @@
   "private": true,
   "proxy": "http://localhost:3000",
   "description": "Front end for Assignment 8",
-  "main": "index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -18,7 +17,7 @@
     "react-icons": "^4.7.1",
     "react-image-gallery": "^1.2.11",
     "react-router-dom": "^6.6.1",
-    "react-scripts": "^2.1.3",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
