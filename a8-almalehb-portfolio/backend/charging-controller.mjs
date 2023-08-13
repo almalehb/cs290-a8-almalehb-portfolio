@@ -12,7 +12,7 @@ app.use(express.json());  // REST needs JSON MIME type.
 // CREATE controller ******************************************
 app.post('/chargingSessions', (req, res) => {
     chargingSessions.createChargingSession(
-        req.body.time,
+        req.body.date,
         req.body.durationInSeconds,
         req.body.address,
         req.body.kwh,
@@ -67,7 +67,7 @@ app.get('/chargingSessions/:_id', (req, res) => {
 app.put('/chargingSessions/:_id', (req, res) => {
     chargingSessions.updateChargingSession(
         req.params._id,
-        req.body.time,
+        req.body.date,
         req.body.durationInSeconds,
         req.body.address,
         req.body.kwh,

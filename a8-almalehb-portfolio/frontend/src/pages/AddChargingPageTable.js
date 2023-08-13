@@ -7,7 +7,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 
 export const AddChargingPageTable = () => {
 
-    const [time, setTime] = useState('');
+    const [date, setDate] = useState('');
     const [durationInSeconds, setDurationInSeconds] = useState(0);
 
     const [duration, setDuration] = useState(0);
@@ -33,7 +33,7 @@ export const AddChargingPageTable = () => {
 
     const addChargingSession = async () => {
 
-        const newChargingSession = { time, durationInSeconds, address, kwh, pricePerKwh };
+        const newChargingSession = { date, durationInSeconds, address, kwh, pricePerKwh };
         const response = await fetch('/chargingSessions', {
             method: 'post',
             body: JSON.stringify(newChargingSession),
@@ -58,7 +58,7 @@ export const AddChargingPageTable = () => {
                     <caption>Enter the details for the session.</caption>
                     <thead>
                         <tr>
-                            <th>Time</th>
+                            <th>Date</th>
                             <th>Duration</th>
                             <th>Address</th>
                             <th>Price per kWh</th>
@@ -70,10 +70,10 @@ export const AddChargingPageTable = () => {
                             <td>
                                 <input
                                     type="date"
-                                    placeholder="Date and time of your charging session."
-                                    value={time}
-                                    onChange={e => setTime(e.target.value.slice(0,10))}
-                                    id="time" />
+                                    placeholder="Date and date of your charging session."
+                                    value={date}
+                                    onChange={e => setDate(e.target.value.slice(0,10))}
+                                    id="date" />
                             </td>
 
                             <td>
@@ -84,7 +84,7 @@ export const AddChargingPageTable = () => {
                                         min={0}
                                         onChange={e => setDuration(e.target.value)}
                                         className="charge-duration" />
-                                    <select className="time-unit-select" onChange={e => setDurationUnits(e.target.value)} value={"minutes"}>
+                                    <select className="time-unit-select" onChange={e => setDurationUnits(e.target.value)} >
                                         <option value="seconds">Seconds</option>
                                         <option value="minutes" selected>Minutes</option>
                                         <option value="hours">Hours</option>

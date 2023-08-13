@@ -22,7 +22,7 @@ db.once("open", (err) => {
 
 // SCHEMA: Define the collection's schema.
 const chargingSchema = mongoose.Schema({
-    time: { type: Date, required: true },
+    date: { type: Date, required: true },
     durationInSeconds: {
         type: Number,
         required: true,
@@ -51,9 +51,9 @@ const chargingSessions = mongoose.model('Charging', chargingSchema);
 
 
 // CREATE model *****************************************
-const createChargingSession = async (time, durationInSeconds, address, kwh, pricePerKwh) => {
+const createChargingSession = async (date, durationInSeconds, address, kwh, pricePerKwh) => {
     const chargingSession = new chargingSessions({
-        time: time,
+        date: date,
         durationInSeconds: durationInSeconds,
         address: address,
         kwh: kwh,
@@ -84,9 +84,9 @@ const deleteChargingSessionById = async (_id) => {
 
 
 // UPDATE model *****************************************************
-const updateChargingSession = async (_id, time, durationInSeconds, address, kwh, pricePerKwh) => {
+const updateChargingSession = async (_id, date, durationInSeconds, address, kwh, pricePerKwh) => {
     const result = await chargingSessions.replaceOne({ _id: _id }, {
-        time: time,
+        date: date,
         durationInSeconds: durationInSeconds,
         address: address,
         kwh: kwh,
@@ -94,7 +94,7 @@ const updateChargingSession = async (_id, time, durationInSeconds, address, kwh,
     });
     return {
         _id: _id,
-        time: time,
+        date: date,
         durationInSeconds: durationInSeconds,
         address: address,
         kwh: kwh,

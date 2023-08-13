@@ -9,7 +9,7 @@ import { FaTrash, FaPen } from "react-icons/fa6";
 function ChargingSession({ chargingSession, onEdit, onDelete }) {
 
     const totalPrice = chargingSession.kwh * chargingSession.pricePerKwh;
-    const date = new Date(chargingSession.time)
+    const date = new Date(chargingSession.date)
     const formattedDate = date.toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',

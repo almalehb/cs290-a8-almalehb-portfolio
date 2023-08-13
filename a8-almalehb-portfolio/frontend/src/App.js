@@ -48,9 +48,7 @@ function App() {
               <Route path="/topics" element={<TopicPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/charging" element={<ChargingPage setChargingSession={setChargingSessionToEdit} />} />
-              {/* <Route path="/create" element={<AddMoviePageForm />} />  */}
               <Route path="/create" element={<AddChargingPageTable />} />
-              {/* <Route path="/update" element={<EditMoviePageForm movieToEdit={movie} />} /> */}
               <Route path="/update" element={<EditChargingPageTable chargingSessionToEdit={chargingSession} />} />
             </Routes>
           </section>

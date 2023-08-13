@@ -5,7 +5,7 @@ import { FaPen } from "react-icons/fa6";
 
 export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
 
-    const [time, setTime] = useState(chargingSessionToEdit.time);
+    const [date, setDate] = useState(new Date(chargingSessionToEdit.date).toISOString().substr(0, 10));
     const [durationInSeconds, setDurationInSeconds] = useState(chargingSessionToEdit.durationInSeconds);
 
     const [duration, setDuration] = useState(chargingSessionToEdit.durationInSeconds / 60);
@@ -33,7 +33,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
         const response = await fetch(`/chargingSessions/${chargingSessionToEdit._id}`, {
             method: 'PUT',
             body: JSON.stringify({
-                time: time,
+                date: date,
                 durationInSeconds: durationInSeconds,
                 address: address,
                 kwh: kwh,
@@ -60,7 +60,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                     <caption>What changes would you like to make?</caption>
                     <thead>
                         <tr>
-                            <th>Time</th>
+                            <th>Date</th>
                             <th>Duration</th>
                             <th>Address</th>
                             <th>Price per kWh</th>
@@ -72,10 +72,10 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                             <td>
                                 <input
                                     type="date"
-                                    placeholder={chargingSessionToEdit.time}
-                                    value={time}
-                                    onChange={e => setTime(e.target.value.slice(0, 10))}
-                                    id="time" />
+                                    placeholder={chargingSessionToEdit.date}
+                                    value={date}
+                                    onChange={e => setDate(e.target.value.slice(0, 10))}
+                                    id="date" />
                             </td>
 
                             <td>
