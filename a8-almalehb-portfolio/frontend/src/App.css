@@ -538,6 +538,17 @@ object {}
   padding: 5px;
 }
 
+.charge-duration-container {
+  display: flex;
+  align-items: center;
+}
+
+.charge-duration,
+.time-unit-select {
+  width: 50%; 
+  margin-right: 10px;
+}
+
 @keyframes App-logo {}
 
 /*   ===== TABLET  media query overrides mobile styles ===== */
