@@ -42,6 +42,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
 
         if (response.status === 200) {
             alert(`Successfully updated your charging session at ${address}!`);
+            redirect("/charging");
         } else {
             const errMessage = await response.json();
             alert(`We were unable to update your charging session. We received code = ${response.status}. ${errMessage.Error}`);
@@ -71,7 +72,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                     type="date"
                                     placeholder={chargingSessionToEdit.time}
                                     value={time}
-                                    onChange={e => setTime(e.target.value)}
+                                    onChange={e => setTime(e.target.value.slice(0,10))}
                                     id="time" />
                             </td>
 

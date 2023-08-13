@@ -7,7 +7,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 
 export const AddChargingPageTable = () => {
 
-    const [time, setTime] = useState(Date());
+    const [time, setTime] = useState('');
     const [durationInSeconds, setDurationInSeconds] = useState(0);
 
     const [duration, setDuration] = useState(0);
@@ -45,6 +45,7 @@ export const AddChargingPageTable = () => {
         });
         if (response.status === 201) {
             alert(`Successfully added your new charging session at ${address}!`);
+            redirect("/charging");
         } else {
             alert(`We were unable to add your charging session. We received error code = ${response.status}`);
         }
@@ -73,7 +74,7 @@ export const AddChargingPageTable = () => {
                                     type="date"
                                     placeholder="Date and time of your charging session."
                                     value={time}
-                                    onChange={e => setTime(e.target.value)}
+                                    onChange={e => setTime(e.target.value.slice(0,10))}
                                     id="time" />
                             </td>
 
