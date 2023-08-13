@@ -27,9 +27,9 @@ export const AddChargingPageTable = () => {
             },
         });
         if(response.status === 201){
-            alert(`helpful adding message`);
+            alert(`Successfully added your new charging session at ${address}!`);
         } else {
-            alert(`helpful adding message = ${response.status}`);
+            alert(`We were unable to add your charging session. We received error code = ${response.status}`);
         }
         redirect("/");
     };
@@ -38,7 +38,7 @@ export const AddChargingPageTable = () => {
         <>
         <article>
             <h2>Add a charging session</h2>
-            <p>Tell us about your charging session.</p>
+            <p>Tell us about your new charging session.</p>
             
             <table id="chargingSessions">
                 <caption>Enter the details for the session.</caption>
@@ -58,7 +58,7 @@ export const AddChargingPageTable = () => {
                             type="date"
                             placeholder="Date and time of your charging session."
                             value={time}
-                            onChange={e => setTitle(e.target.value)} 
+                            onChange={e => setTime(e.target.value)} 
                             id="time" />
                     </td>
 
@@ -67,7 +67,7 @@ export const AddChargingPageTable = () => {
                             type="number"
                             value={durationInSeconds}
                             placeholder="Duration in seconds."
-                            onChange={e => setYear(e.target.value)} 
+                            onChange={e => setDurationInSeconds(e.target.value)} 
                             id="duration" />
                     </td>
 
@@ -76,7 +76,7 @@ export const AddChargingPageTable = () => {
                             type="text"
                             placeholder="Location of the charging session."
                             value={address}
-                            onChange={e => setLanguage(e.target.value)} 
+                            onChange={e => setAddress(e.target.value)} 
                             id="Address" />
                     </td>
 
@@ -85,17 +85,17 @@ export const AddChargingPageTable = () => {
                             type="number"
                             placeholder="Kilowatt-hour amount."
                             value={kwh}
-                            onChange={e => setLanguage(e.target.value)} 
+                            onChange={e => setKwh(e.target.value)} 
                             id="kwh" />
                     </td>
 
-                    <td><label for="kwh">Price Per kWh</label>
+                    <td><label for="pricePerKwh">Price Per kWh</label>
                         <input
                             type="number"
                             placeholder="Price per kilowatt-hour."
                             value={pricePerKwh}
-                            onChange={e => setLanguage(e.target.value)} 
-                            id="kwh" />
+                            onChange={e => setPricePerKwh(e.target.value)} 
+                            id="pricePerKwh" />
                     </td>
 
                     <td>

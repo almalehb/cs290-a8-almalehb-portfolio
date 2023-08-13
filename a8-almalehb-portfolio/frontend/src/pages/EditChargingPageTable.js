@@ -1,30 +1,34 @@
 import React, { useState }  from 'react';
 import { useNavigate } from "react-router-dom";
 
-export const EditChargingPageTable = ({ movieToEdit }) => {
+export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
  
-    const [title, setTitle]       = useState(movieToEdit.title);
-    const [year, setYear]         = useState(movieToEdit.year);
-    const [language, setLanguage] = useState(movieToEdit.language);
+    const [time, setTime] = useState(chargingSessionToEdit.time);
+    const [durationInSeconds, setDurationInSeconds] = useState(chargingSessionToEdit.durationInSeconds);
+    const [address, setAddress] = useState(chargingSessionToEdit.address);
+    const [kwh, setKwh] = useState(chargingSessionToEdit.kwh);
+    const [pricePerKwh, setPricePerKwh] = useState(chargingSessionToEdit.pricePerKwh);
     
     const redirect = useNavigate();
 
-    const editMovie = async () => {
-        const response = await fetch(`/movies/${movieToEdit._id}`, {
+    const editChargingSession = async () => {
+        const response = await fetch(`/chargingSessions/${chargingSessionToEdit._id}`, {
             method: 'PUT',
             body: JSON.stringify({ 
-                title: title, 
-                year: year, 
-                language: language
+                time: time, 
+                durationInSeconds: durationInSeconds,
+                address: address, 
+                kwh: kwh, 
+                pricePerKwh: pricePerKwh
             }),
             headers: {'Content-Type': 'application/json',},
         });
 
         if (response.status === 200) {
-            alert(`helpful editing message`);
+            alert(`Successfully updated your charging session at ${address}!`);
         } else {
             const errMessage = await response.json();
-            alert(`helpful editing message ${response.status}. ${errMessage.Error}`);
+            alert(`We were unable to update your charging session. We received code = ${response.status}. ${errMessage.Error}`);
         }
         redirect("/");
     }
@@ -32,51 +36,70 @@ export const EditChargingPageTable = ({ movieToEdit }) => {
     return (
         <>
         <article>
-            <h2>Edit a movie</h2>
-            <p>Paragraph about this page.</p>
-            <table id="movies">
-                <caption>Which movie are you adding?</caption>
+            <h2>Edit a charging session</h2>
+            <p>Modify any of the properties of an existing session.</p>
+            <table id="chargingSessions">
+                <caption>What changes would you like to make?</caption>
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Year</th>
-                        <th>Language</th>
+                        <th>Time</th>
+                        <th>Duration (Seconds)</th>
+                        <th>Address</th>
+                        <th>kWh</th>
+                        <th>Price per kWh</th>
                     </tr>
                 </thead>
                 <tbody>
                 <tr>
-                <td><label for="title">Movie title</label>
+                <td><label for="time">Charging Time</label>
                         <input
-                            type="text"
-                            placeholder="Title of the movie"
-                            value={title}
-                            onChange={e => setTitle(e.target.value)} 
-                            id="title" />
+                            type="date"
+                            placeholder={chargingSessionToEdit.time}
+                            value={time}
+                            onChange={e => setTime(e.target.value)} 
+                            id="time" />
                     </td>
 
-                    <td><label for="year">Year released</label>
+                    <td><label for="duration">Charging Duration</label>
                         <input
                             type="number"
-                            value={year}
-                            placeholder="Year of the movie"
-                            onChange={e => setYear(e.target.value)} 
-                            id="year" />
+                            value={durationInSeconds}
+                            placeholder={chargingSessionToEdit.durationInSeconds}
+                            onChange={e => setDurationInSeconds(e.target.value)} 
+                            id="duration" />
                     </td>
 
-                    <td><label for="language">Language</label>
+                    <td><label for="Address">Address</label>
                         <input
                             type="text"
-                            placeholder="Primary language of the movie"
-                            value={language}
-                            onChange={e => setLanguage(e.target.value)} 
-                            id="language" />
+                            placeholder={chargingSessionToEdit.address}
+                            value={address}
+                            onChange={e => setAddress(e.target.value)} 
+                            id="Address" />
                     </td>
 
+                    <td><label for="kwh">kWh</label>
+                        <input
+                            type="number"
+                            placeholder={chargingSessionToEdit.kwh}
+                            value={kwh}
+                            onChange={e => setKwh(e.target.value)} 
+                            id="kwh" />
+                    </td>
+
+                    <td><label for="pricePerKwh">Price Per kWh</label>
+                        <input
+                            type="number"
+                            placeholder={chargingSessionToEdit.pricePerKwh}
+                            value={pricePerKwh}
+                            onChange={e => setPricePerKwh(e.target.value)} 
+                            id="pricePerKwh" />
+                    </td>
                     <td>
                     <label for="submit">Commit</label>
                         <button
                             type="submit"
-                            onClick={editMovie}
+                            onClick={editChargingSession}
                             id="submit"
                         >Edit</button>
                     </td>
