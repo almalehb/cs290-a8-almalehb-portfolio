@@ -1,7 +1,7 @@
 {
-  "name": "charging-starter-backend",
+  "name": "charging-backend",
   "version": "2023",
-  "description": "A charging history table",
+  "description": "An electric vehicle charging history table",
   "main": "charging-controller.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

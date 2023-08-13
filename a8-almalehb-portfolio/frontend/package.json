@@ -1,7 +1,8 @@
 {
-  "name": "a5-almalehb",
+  "name": "a8-almalehb",
   "version": "1.0.0",
-  "description": "Assignment5",
+  "proxy": "http://localhost:3000",
+  "description": "Front end for Assignment 8",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
