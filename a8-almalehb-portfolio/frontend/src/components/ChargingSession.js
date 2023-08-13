@@ -3,7 +3,7 @@ import React from 'react';
 // Change the icons, function names, and parameters 
 // to fit your portfolio topic and schema.
 
-import { MdDeleteForever, MdEdit } from 'react-icons/md';
+import { FaTrash, FaPen } from "react-icons/fa6";
 
 
 function ChargingSession({ chargingSession, onEdit, onDelete }) {
@@ -19,8 +19,8 @@ function ChargingSession({ chargingSession, onEdit, onDelete }) {
             <td>{chargingSession.pricePerKwh}</td>
             <td>{totalKwh}</td>
             <td>{totalPrice}</td>
-            <td><MdDeleteForever onClick={() => onDelete(chargingSession._id)} /></td>
-            <td><MdEdit onClick={() => onEdit(chargingSession)} /></td>
+            <td><FaPen onClick={() => onEdit(chargingSession)} /></td>
+            <td><FaTrash onClick={() => onDelete(chargingSession._id)} /></td>
         </tr>
     );
 }

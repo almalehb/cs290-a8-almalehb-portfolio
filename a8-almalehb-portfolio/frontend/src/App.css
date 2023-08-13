@@ -525,9 +525,17 @@ object {}
 
 .shape {}
 
+#addChargingButton { 
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
 #chargingSessions { 
   border: 2px dotted var(--medium-border-color);
   border-radius: 10px;
+  padding: 5px;
 }
 
 @keyframes App-logo {}

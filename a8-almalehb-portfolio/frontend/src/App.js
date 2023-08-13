@@ -19,10 +19,8 @@ import OrderPage from './pages/OrderPage';
 import ContactPage from './pages/ContactPage';
 import ChargingPage from './pages/ChargingPage';
 
-import AddMoviePageForm from './pages/AddMoviePageForm';
-import AddMoviePageTable from './pages/AddMoviePageTable';
-import EditMoviePageForm from './pages/EditMoviePageForm';
-import EditMoviePageTable from './pages/EditMoviePageTable';
+import AddChargingPageTable from './pages/AddChargingPageTable';
+import EditChargingPageTable from './pages/EditChargingPageTable';
 
 // Define the function that renders the content in Routes, using State.
 function App() {
@@ -51,9 +49,9 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/charging" element={<ChargingPage setChargingSession={setChargingSessionToEdit} />} />
               {/* <Route path="/create" element={<AddMoviePageForm />} />  */}
-              <Route path="/create" element={<AddMoviePageTable />} />
+              <Route path="/create" element={<AddChargingPageTable />} />
               {/* <Route path="/update" element={<EditMoviePageForm movieToEdit={movie} />} /> */}
-              <Route path="/update" element={<EditMoviePageTable chargingSessionToEdit={chargingSession} />} />
+              <Route path="/update" element={<EditChargingPageTable chargingSessionToEdit={chargingSession} />} />
             </Routes>
           </section>
         </main>

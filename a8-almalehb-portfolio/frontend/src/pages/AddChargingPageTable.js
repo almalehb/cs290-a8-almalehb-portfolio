@@ -99,7 +99,7 @@ export const AddChargingPageTable = () => {
                     </td>
 
                     <td>
-                    <label for="submit">Submit</label>
+                    <label for="submit">Submit when ready</label>
                         <button
                             type="submit"
                             onClick={addChargingSession}

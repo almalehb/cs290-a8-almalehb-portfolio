@@ -17,7 +17,11 @@ function ChargingPage({ setChargingSession }) {
         const chargingSessions = await response.json();
         setChargingSessions(chargingSessions);
     } 
-    
+
+    // UPDATE a single chargingSession
+    const onCreateChargingSession = async chargingSession => {
+        redirect("/create");
+    }
 
     // UPDATE a single chargingSession
     const onEditChargingSession = async chargingSession => {
@@ -49,6 +53,7 @@ function ChargingPage({ setChargingSession }) {
             <p>This table displays your EV Charging history.</p>
             <ChargingList 
                 chargingSessions={chargingSessions} 
+                onCreate={onCreateChargingSession}
                 onEdit={onEditChargingSession} 
                 onDelete={onDeleteChargingSession} 
             />
