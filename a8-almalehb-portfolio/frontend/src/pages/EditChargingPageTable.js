@@ -8,8 +8,8 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
     const [time, setTime] = useState(chargingSessionToEdit.time);
     const [durationInSeconds, setDurationInSeconds] = useState(chargingSessionToEdit.durationInSeconds);
 
-    const [duration, setDuration] = useState(0);
-    const [durationUnits, setDurationUnits] = useState('');
+    const [duration, setDuration] = useState(chargingSessionToEdit.durationInSeconds / 60);
+    const [durationUnits, setDurationUnits] = useState('minutes');
 
     const [address, setAddress] = useState(chargingSessionToEdit.address);
     const [kwh, setKwh] = useState(chargingSessionToEdit.kwh);
@@ -86,9 +86,9 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                         min={0}
                                         onChange={e => setDuration(e.target.value)}
                                         className="charge-duration" />
-                                    <select className="time-unit-select" onChange={e => setDurationUnits(e.target.value)}>
+                                    <select className="time-unit-select" onChange={e => setDurationUnits(e.target.value)} >
                                         <option value="seconds">Seconds</option>
-                                        <option value="minutes">Minutes</option>
+                                        <option value="minutes" selected>Minutes</option>
                                         <option value="hours">Hours</option>
                                     </select>
                                 </div>
