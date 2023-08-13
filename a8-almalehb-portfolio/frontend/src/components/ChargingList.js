@@ -1,26 +1,29 @@
 import React from 'react';
-import Movie from './Movie';
+import ChargingSession from './ChargingSession';
 
 // Change the function names and parameters 
 // to fit your portfolio topic and schema.
 
-function ChargingList({ movies, onDelete, onEdit }) {
+function ChargingList({ chargingSessions, onDelete, onEdit }) {
     return (
-        <table id="movies">
-            <caption>Add and Edit Movies</caption>
+        <table id="chargingSessions">
+            <caption>Add new sessions or edit existing charging sessions</caption>
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Year</th>
-                    <th>Language</th>
+                    <th>Time</th>
+                    <th>Duration</th>
+                    <th>Address</th>
+                    <th>Price per KwH</th>
+                    <th>Total kWh</th>
+                    <th>Total Price</th>
                     <th>Delete</th>
                     <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
-                {movies.map((movie, i) => 
-                    <Movie 
-                        movie={movie} 
+                {chargingSessions.map((chargingSession, i) => 
+                    <ChargingSession 
+                        chargingSession={chargingSession} 
                         key={i}
                         onDelete={onDelete}
                         onEdit={onEdit} 

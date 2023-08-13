@@ -28,7 +28,7 @@ function ChargingPage({ setChargingSession }) {
     // DELETE a single chargingSession  
     const onDeleteChargingSession = async _id => {
         const response = await fetch(`/chargingSessions/${_id}`, { method: 'DELETE' });
-        if (response.status === 204) {
+        if (response.status === 200) {
             const getResponse = await fetch('/chargingSessions');
             const chargingSessions = await getResponse.json();
             setChargingSessions(chargingSessions);

@@ -525,6 +525,11 @@ object {}
 
 .shape {}
 
+#chargingSessions { 
+  border: 2px dotted var(--medium-border-color);
+  border-radius: 10px;
+}
+
 @keyframes App-logo {}
 
 /*   ===== TABLET  media query overrides mobile styles ===== */
