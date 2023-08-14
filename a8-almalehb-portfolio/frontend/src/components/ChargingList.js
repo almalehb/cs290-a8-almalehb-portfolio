@@ -9,7 +9,7 @@ function ChargingList({ chargingSessions, onCreate, onDelete, onEdit }) {
     return (
         <table id="chargingSessionsTable">
             <caption>Add new sessions or edit existing charging sessions.
-                <div className="add-session-container" onClick={onCreate}>
+                <div className="addSessionContainer" onClick={onCreate}>
                     <span>Add Session</span>
                     <FaCirclePlus id="addChargingButton"
                         className="faIconButton" />

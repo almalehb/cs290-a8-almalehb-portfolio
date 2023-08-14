@@ -61,10 +61,10 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                     <thead>
                         <tr>
                             <th>Date</th>
-                            <th>Duration</th>
+                            <th className='durationCol'>Duration</th>
                             <th>Address</th>
-                            <th>Price per kWh</th>
-                            <th>kWh</th>
+                            <th className='pricePerKwhCol'>Price per kWh</th>
+                            <th className='kwhCol'>kWh</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,18 +74,18 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                     type="date"
                                     value={date}
                                     onChange={e => setDate(e.target.value)}
-                                    id="date" />
+                                    id="date" className='chargingInput'/>
                             </td>
 
                             <td>
-                                <div className="charge-duration-container">
+                                <div className="chargeDurationContainer durationCol">
                                     <input
                                         type="number"
                                         value={duration}
                                         min={0}
                                         onChange={e => setDuration(e.target.value)}
-                                        className="charge-duration" />
-                                    <select className="time-unit-select" defaultValue={'minutes'} onChange={e => setDurationUnits(e.target.value)} >
+                                        className="chargeDuration chargingInput" />
+                                    <select className="timeUnitSelection chargingInput" defaultValue={'minutes'} onChange={e => setDurationUnits(e.target.value)} >
                                         <option value="seconds">Seconds</option>
                                         <option value="minutes">Minutes</option>
                                         <option value="hours">Hours</option>
@@ -94,12 +94,9 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                             </td>
 
                             <td>
-                                <input
-                                    type="text"
-                                    placeholder={chargingSessionToEdit.address}
-                                    value={address}
+                                 <textarea name="address" minlength="3" maxlength="500" value={address} 
                                     onChange={e => setAddress(e.target.value)}
-                                    id="Address" />
+                                    id="address" className='chargingInput'/>
                             </td>
 
                             <td>
@@ -109,7 +106,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                     value={pricePerKwh}
                                     min={0}
                                     onChange={e => setPricePerKwh(e.target.value)}
-                                    id="pricePerKwh" />
+                                    id="pricePerKwh" className='chargingInput pricePerKwhCol'/>
                             </td>
 
                             <td>
@@ -119,7 +116,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                     value={kwh}
                                     min={0}
                                     onChange={e => setKwh(e.target.value)}
-                                    id="kwh" />
+                                    id="kwh" className='chargingInput kwhCol'/>
                             </td>
 
 

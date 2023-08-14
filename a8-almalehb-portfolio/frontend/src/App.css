@@ -18,7 +18,7 @@ by defining min and max widths with auto right/left margins
   */
 
   @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
-  
+  @import "~react-image-gallery/styles/css/image-gallery.css";
 
 /* @import 'node_modules/modern-normalize/modern-normalize.css'; */
 /* npm install modern-normalize
@@ -458,40 +458,6 @@ embed {}
 object {}
 
 /*  ----- Classes for alignment, positioning, widths, grids, embellishments, and animation -----  */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-.gallery figure { 
-  flex: 0 1 350px; 
-  display: flex; 
-  flex-direction: column;
-  align-items: center; 
-  justify-content: center;
-  margin: 10px;
-  border: 1px solid var(--medium-border-color);
-  background-color: var(--medium-background-color);
-  padding: 10px; 
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.gallery figure img { 
-  width: 100%;
-  height: auto; 
-  object-fit: contain;
-}
-
-.gallery figcaption { 
-  color: var(--medium-text-color);
-  padding: 15px;
-  font-weight: bold;
-  font-size: 1.2em;
-  text-align: center;
-}
 
 .floatright {}
 
@@ -555,11 +521,13 @@ object {}
   text-align: left;
 }
 
-#chargingSessionsTable input[type="text"] {
-  min-width: 200px;
+.chargingInput { 
+  min-height: 35px;
+  padding: 6px;
+  font-size: 0.9em;
 }
 
-.add-session-container { 
+.addSessionContainer { 
   display: flex;     
   align-items: center;
   justify-content: center;
@@ -567,19 +535,30 @@ object {}
   cursor: pointer;
 }
 
-.charge-duration-container {
+.chargeDurationContainer {
   display: flex;
-  align-items: center;
 }
 
 .sessionDeleteButton { 
   color: var(--medium-delete-color);
 }
 
-.charge-duration,
-.time-unit-select {
-  width: 50%; 
+.chargeDuration {
+  width: 35%; 
   margin-right: 10px;
+}
+
+.timeUnitSelection {
+  width: 65%; 
+  margin-right: 10px;
+}
+
+.durationCol { 
+  max-width: 200px;
+}
+
+.kwhCol, .pricePerKwhCol { 
+  max-width: 50px;
 }
 
 @keyframes App-logo {}
