@@ -5,7 +5,7 @@ import { FaPen } from "react-icons/fa6";
 
 export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
 
-    const [date, setDate] = useState(new Date(chargingSessionToEdit.date).toISOString().substr(0, 10));
+    const [date, setDate] = useState(new Date(chargingSessionToEdit.date).toISOString().slice(0, 10));
     const [durationInSeconds, setDurationInSeconds] = useState(chargingSessionToEdit.durationInSeconds);
 
     const [duration, setDuration] = useState(chargingSessionToEdit.durationInSeconds / 60);
@@ -72,9 +72,8 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                             <td>
                                 <input
                                     type="date"
-                                    placeholder={chargingSessionToEdit.date}
                                     value={date}
-                                    onChange={e => setDate(e.target.value.slice(0, 10))}
+                                    onChange={e => setDate(e.target.value)}
                                     id="date" />
                             </td>
 

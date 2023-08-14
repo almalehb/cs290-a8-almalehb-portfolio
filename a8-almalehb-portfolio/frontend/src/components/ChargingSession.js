@@ -9,13 +9,13 @@ import { FaTrash, FaPen } from "react-icons/fa6";
 function ChargingSession({ chargingSession, onEdit, onDelete }) {
 
     const totalPrice = chargingSession.kwh * chargingSession.pricePerKwh;
-    const date = new Date(chargingSession.date)
-    const formattedDate = date.toLocaleDateString('en-US', {
-        weekday: 'long',
+    const date = new Date(chargingSession.date);
+
+    const formattedDate = date.toISOString({
         year: 'numeric',
-        month: 'long',
+        month: 'numeric',
         day: 'numeric'
-      });
+    }).slice(0, 10);
 
     return (
         <tr>

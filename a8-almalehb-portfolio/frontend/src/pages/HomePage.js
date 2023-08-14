@@ -11,8 +11,7 @@ function HomePage() {
             <div>
                 <h2>Home</h2>
                 <article>
-                    <p>
-                        Welcome to my website!</p>
+                    <h3>Welcome to my website!</h3>
                     <p>This website was part of a project that helped me learn and understand various web technologies.
                     </p>
                     <p>My career goals as of 2023 include becoming a domain expert in Computer Science, specializing in iOS mobile app development, utilizing my skills to solve real-world problems, and helping more people get into the industry through mentorship and sharing my knowledge.</p>

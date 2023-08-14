@@ -7,7 +7,14 @@ import { FaCirclePlus } from "react-icons/fa6";
 
 export const AddChargingPageTable = () => {
 
-    const [date, setDate] = useState('');
+    const currentDate = new Date()
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
+    const day = String(currentDate.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    const [date, setDate] = useState(formattedDate);
     const [durationInSeconds, setDurationInSeconds] = useState(0);
 
     const [duration, setDuration] = useState(0);
@@ -72,7 +79,7 @@ export const AddChargingPageTable = () => {
                                     type="date"
                                     placeholder="Date and date of your charging session."
                                     value={date}
-                                    onChange={e => setDate(e.target.value.slice(0,10))}
+                                    onChange={e => setDate(e.target.value)}
                                     id="date" />
                             </td>
 
