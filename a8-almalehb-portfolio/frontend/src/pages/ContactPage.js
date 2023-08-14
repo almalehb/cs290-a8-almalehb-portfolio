@@ -1,122 +1,185 @@
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-function ContactPage() {
+function ContactPage({ setContactForm }) {
 
-    useEffect(() => {
-    }, []);
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        message: '',
+        rating: '10',
+        mode: 'Light Mode',
+        improvements: [],
+    });
+
+    const handleChange = (e) => {
+        const { name, value, type } = e.target;
+        if (type === 'checkbox') {
+            setFormData({
+                ...formData,
+                improvements: e.target.checked
+                    ? [...formData.improvements, value]
+                    : formData.improvements.filter((improvement) => improvement !== value),
+            });
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
+        setContactForm(formData);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post('/formResults', formData);
+            navigate('/thank-you'); 
+        } catch (error) {
+            console.error('An error was encountered while submitting the form', error)
+        }
+    };
 
     return (
         <>
             <div>
                 <h2>Contact</h2>
                 <article>
-
                     <h3>We would love to hear what you think about our website. Your feedback matters to us.</h3>
                     <p>Please fill out all fields marked by *</p>
-                    <form action="/formResults" method="POST">
-
+                    <form onSubmit={handleSubmit}>
                         <fieldset>
                             <legend>Your contact information.</legend>
-
-                            <label for="fullName" class="required">Your first and last name </label>
-                            <input type="text" name="fullName" id="fullName" size="35" required
-                                placeholder="Please enter your first and last name." autofocus />
-
-                            <label for="email" class="required">Email </label>
-                            <input type="text" name="email" id="email" size="35" required
-                                placeholder="Please enter your email address." />
-
-                            <label for="message" class="required">Do you have any specific feedback? </label>
-                            <textarea name="message" minlength="3" maxlength="500" required
-                                placeholder="Your feedback..."></textarea>
+                            <label htmlFor="fullName" className="required">Your first and last name </label>
+                            <input
+                                type="text"
+                                name="fullName"
+                                id="fullName"
+                                size="35"
+                                required
+                                placeholder="Please enter your first and last name."
+                                autoFocus
+                                value={formData.fullName}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="email" className="required">Email </label>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                size="35"
+                                required
+                                placeholder="Please enter your email address."
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="message" className="required">Do you have any specific feedback? </label>
+                            <textarea
+                                name="message"
+                                minLength="3"
+                                maxLength="500"
+                                required
+                                placeholder="Your feedback..."
+                                value={formData.message}
+                                onChange={handleChange}
+                            ></textarea>
                         </fieldset>
-
                         <fieldset>
                             <legend>Help us further improve this website.</legend>
-
-
                             <div id="ratings">
                                 <p>Please rate this website from 1 to 10:</p>
-
-                                <input type="radio" id="rate1" name="rating" value="1" />
-                                <label for="rate1">1</label>
-
-                                <input type="radio" id="rate2" name="rating" value="2" />
-                                <label for="rate2">2</label>
-
-                                <input type="radio" id="rate3" name="rating" value="3" />
-                                <label for="rate3">3</label>
-
-                                <input type="radio" id="rate4" name="rating" value="4" />
-                                <label for="rate4">4</label>
-
-                                <input type="radio" id="rate5" name="rating" value="5" />
-                                <label for="rate5">5</label>
-
-                                <input type="radio" id="rate6" name="rating" value="6" />
-                                <label for="rate6">6</label>
-
-                                <input type="radio" id="rate7" name="rating" value="7" />
-                                <label for="rate7">7</label>
-
-                                <input type="radio" id="rate8" name="rating" value="8" />
-                                <label for="rate8">8</label>
-
-                                <input type="radio" id="rate9" name="rating" value="9" />
-                                <label for="rate9">9</label>
-
-                                <input type="radio" id="rate10" name="rating" value="10" checked />
-                                <label for="rate10">10</label>
+                                {[...Array(10)].map((_, index) => (
+                                    <span key={index}>
+                                        <input
+                                            type="radio"
+                                            id={`rate${index + 1}`}
+                                            name="rating"
+                                            value={index + 1}
+                                            checked={formData.rating === `${index + 1}`}
+                                            onChange={handleChange}
+                                        />
+                                        <label htmlFor={`rate${index + 1}`}>{index + 1}</label>
+                                    </span>
+                                ))}
                             </div>
-
-                            <label id="modeLabel" for="mode">What is your usual preferred mode?</label>
-                            <select id="mode" name="mode">
+                            <label id="modeLabel" htmlFor="mode">What is your usual preferred mode?</label>
+                            <select
+                                id="mode"
+                                name="mode"
+                                value={formData.mode}
+                                onChange={handleChange}
+                            >
                                 <option value="Light Mode">Light Mode</option>
                                 <option value="Dark Mode">Dark Mode</option>
                                 <option value="customized colors">I prefer to customize the colors</option>
                             </select>
-
                             <p>Select up to 6 possible improvements to this website:</p>
-
-                            <div class="improvements">
-                                <input type="checkbox" id="performance" name="improvements" value="Performance" />
-                                <label for="performance">Performance</label>
+                            <div className="improvements">
+                                <input
+                                    type="checkbox"
+                                    id="performance"
+                                    name="improvements"
+                                    value="Performance"
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="performance">Performance</label>
                             </div>
-
-                            <div class="improvements">
-                                <input type="checkbox" id="design" name="improvements" value="Design" />
-                                <label for="design">Design</label>
+                            <div className="improvements">
+                                <input
+                                    type="checkbox"
+                                    id="design"
+                                    name="improvements"
+                                    value="Design"
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="design">Design</label>
                             </div>
-
-                            <div class="improvements">
-                                <input type="checkbox" id="utility" name="improvements" value="Utility" />
-                                <label for="utility">Utility</label>
+                            <div className="improvements">
+                                <input
+                                    type="checkbox"
+                                    id="utility"
+                                    name="improvements"
+                                    value="Utility"
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="utility">Utility</label>
                             </div>
-
-                            <div class="improvements">
-                                <input type="checkbox" id="content" name="improvements" value="Content" />
-                                <label for="content">Content</label>
+                            <div className="improvements">
+                                <input
+                                    type="checkbox"
+                                    id="content"
+                                    name="improvements"
+                                    value="Content"
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="content">Content</label>
                             </div>
-
-                            <div class="improvements">
-                                <input type="checkbox" id="mobile" name="improvements" value="Mobile-friendliness" />
-                                <label for="mobile">Mobile-friendliness</label>
+                            <div className="improvements">
+                                <input
+                                    type="checkbox"
+                                    id="mobile"
+                                    name="improvements"
+                                    value="Mobile-friendliness"
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="mobile">Mobile-friendliness</label>
                             </div>
-
-                            <div class="improvements">
-                                <input type="checkbox" id="Accessibility" name="improvements" value="accessibility" />
-                                <label for="accessibility">Accessibility</label>
+                            <div className="improvements">
+                                <input
+                                    type="checkbox"
+                                    id="Accessibility"
+                                    name="improvements"
+                                    value="accessibility"
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="accessibility">Accessibility</label>
                             </div>
-
-                            <label for="submit">
-                                <button type="submit" id="submit" name="submission">Submit your feedback</button>
+                            <label htmlFor="submit">
+                                <button type="submit" id="submit" name="submission">
+                                    Submit your feedback
+                                </button>
                             </label>
-
                         </fieldset>
-
                     </form>
-
                 </article>
             </div>
         </>

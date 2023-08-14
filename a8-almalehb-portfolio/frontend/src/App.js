@@ -18,6 +18,7 @@ import GalleryPage from './pages/GalleryPage';
 import OrderPage from './pages/OrderPage';
 import ContactPage from './pages/ContactPage';
 import ChargingPage from './pages/ChargingPage';
+import ThankYouPage from './pages/ThankYouPage';
 
 import AddChargingPageTable from './pages/AddChargingPageTable';
 import EditChargingPageTable from './pages/EditChargingPageTable';
@@ -26,6 +27,7 @@ import EditChargingPageTable from './pages/EditChargingPageTable';
 function App() {
 
   const [chargingSession, setChargingSessionToEdit] = useState([])
+  const [contactForm, setContactForm] = useState([])
 
   return (
     <>
@@ -46,10 +48,11 @@ function App() {
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/order" element={<OrderPage />} />
               <Route path="/topics" element={<TopicPage />} />
-              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/contact" element={<ContactPage setContactForm={setContactForm} />} />
               <Route path="/charging" element={<ChargingPage setChargingSession={setChargingSessionToEdit} />} />
               <Route path="/create" element={<AddChargingPageTable />} />
               <Route path="/update" element={<EditChargingPageTable chargingSessionToEdit={chargingSession} />} />
+              <Route path="/thank-you" element={<ThankYouPage contactForm={contactForm} />} />
             </Routes>
           </section>
         </main>

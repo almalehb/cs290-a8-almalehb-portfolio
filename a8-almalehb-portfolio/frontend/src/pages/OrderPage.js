@@ -24,7 +24,7 @@ function OrderPage() {
                                 placeholder="Please enter your first and last name." autofocus />
 
                             <label for="email" class="required">Email </label>
-                            <input type="text" name="email" id="email" size="35" required
+                            <input type="email" name="email" id="email" size="35" required
                                 placeholder="Please enter your email address." />
 
                             <label for="address" class="required">Address </label>

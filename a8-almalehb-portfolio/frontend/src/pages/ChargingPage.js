@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ChargingList from '../components/ChargingList';
 
 function ChargingPage({ setChargingSession }) {
-    
+
     // Use the Navigate for redirection
     const redirect = useNavigate();
 
@@ -16,7 +16,7 @@ function ChargingPage({ setChargingSession }) {
         const response = await fetch('/chargingSessions');
         const chargingSessions = await response.json();
         setChargingSessions(chargingSessions);
-    } 
+    }
 
     // UPDATE a single chargingSession
     const onCreateChargingSession = async chargingSession => {
@@ -49,14 +49,16 @@ function ChargingPage({ setChargingSession }) {
     // DISPLAY the charging sessions
     return (
         <>
-            <h2>List of EV Charging Sessions</h2>
-            <p>This table displays your charging history.</p>
-            <ChargingList 
-                chargingSessions={chargingSessions} 
-                onCreate={onCreateChargingSession}
-                onEdit={onEditChargingSession} 
-                onDelete={onDeleteChargingSession} 
-            />
+            <div>
+                <h2>List of EV Charging Sessions</h2>
+                <p>This table displays your charging history.</p>
+                <ChargingList
+                    chargingSessions={chargingSessions}
+                    onCreate={onCreateChargingSession}
+                    onEdit={onEditChargingSession}
+                    onDelete={onDeleteChargingSession}
+                />
+            </div>
         </>
     );
 }
