@@ -85,9 +85,9 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
                                         min={0}
                                         onChange={e => setDuration(e.target.value)}
                                         className="charge-duration" />
-                                    <select className="time-unit-select" onChange={e => setDurationUnits(e.target.value)} >
+                                    <select className="time-unit-select" defaultValue={'minutes'} onChange={e => setDurationUnits(e.target.value)} >
                                         <option value="seconds">Seconds</option>
-                                        <option value="minutes" selected>Minutes</option>
+                                        <option value="minutes">Minutes</option>
                                         <option value="hours">Hours</option>
                                     </select>
                                 </div>
