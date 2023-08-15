@@ -16,7 +16,7 @@ function HomePage() {
                     </p>
                     <p>My career goals as of 2023 include becoming a domain expert in Computer Science, specializing in iOS mobile app development, utilizing my skills to solve real-world problems, and helping more people get into the industry through mentorship and sharing my knowledge.</p>
 
-                    <p>This website was built primiarly using the MERN stack, which includes:</p>
+                    <p>This website was built primarily using the MERN stack, which includes:</p>
                     <dl>
                         <dt><strong>MongoDB</strong></dt>
                         <dd>This is a noSQL database that stores data in a flexible JSON-like format, allowing for quick retrieval and storage of data without having a fixed schema. It is scalable and adaptable to various data requirements.</dd>

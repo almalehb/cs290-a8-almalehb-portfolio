@@ -345,12 +345,6 @@ fieldset {
   min-width: 240px;
 }
 
-#address { 
-  padding: 10px;
-  font-size: 1.1em;
-  min-width: 240px;
-}
-
 label.required::after { 
   content: " *";
   color: var(--medium-required-color)
