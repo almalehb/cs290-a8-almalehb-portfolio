@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ProductQuantity from '../components/ProductQuantity';
 
 function OrderPage() {
 
@@ -104,16 +105,8 @@ function OrderPage() {
                             </table>
 
                             <label for="amount">Please enter a quantity between 1 and 35:</label>
-                            <input
-                                placeholder="Quantity"
-                                type="number"
-                                name="amount"
-                                id="amount"
-                                maxlength="2"
-                                minlength="1"
-                                max="35"
-                                required
-                            />
+                           <ProductQuantity />
+                           
 
                             <p>Click submit when ready to place the order.</p>
                             <label for="submit">
