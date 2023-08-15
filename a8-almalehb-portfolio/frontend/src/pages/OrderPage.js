@@ -1,13 +1,9 @@
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ProductQuantity from '../components/ProductQuantity';
+import ProductRow from '../components/ProductRow.js';
+import products from '../data/products.js';
 
 function OrderPage() {
-
-    const [selectedProduct, setSelectedProduct] = useState('Spinning Cat Scratcher Ball');
-
-    useEffect(() => {
-    }, []);
 
     return (
         <>
@@ -18,101 +14,26 @@ function OrderPage() {
                     <p>Please fill out your details below.</p>
 
                     <form action="/orderResults" method="POST">
-
-
                         <fieldset>
                             <legend>Pet Products for Sale</legend>
-                            <table>
+                            <table id="productTable">
                                 <caption>Select a Product</caption>
                                 <thead>
                                     <tr>
                                         <th>Company</th>
                                         <th>Product</th>
                                         <th>Price</th>
+                                        <th>Quantity</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>AGYM</td>
-                                        <td>
-                                            <label for="agymProduct">
-                                                <input type="radio" id="agymProduct" name="product" required
-                                                    checked={selectedProduct === 'Spinning Cat Scratcher Ball'}
-                                                    onChange={(e) => setSelectedProduct(e.target.value)}
-                                                    value="Spinning Cat Scratcher Ball" />
-                                                Spinning Cat Scratcher Ball
-                                            </label>
-                                        </td>
-                                        <td>52.99</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Jasonwell</td>
-                                        <td>
-                                            <label for="jasonProduct">
-                                                <input type="radio" id="jasonProduct" name="product"
-                                                    checked={selectedProduct === 'Foldable Dog Pool'}
-                                                    onChange={(e) => setSelectedProduct(e.target.value)}
-                                                    value="Foldable Dog Pool" />
-                                                Foldable Dog Pool
-                                            </label>
-                                        </td>
-                                        <td>27.25</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Expawlorer</td>
-                                        <td>
-                                            <label for="expawProduct">
-                                                <input type="radio" id="expawProduct" name="product"
-                                                    checked={selectedProduct === 'Dog Fence Window'}
-                                                    onChange={(e) => setSelectedProduct(e.target.value)}
-                                                    value="Dog Fence Window" />
-                                                Dog Fence Window
-                                            </label>
-                                        </td>
-                                        <td>30.50</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Lollimeow</td>
-                                        <td>
-                                            <label for="lolliProduct">
-                                                <input type="radio" id="lolliProduct" name="product"
-                                                    checked={selectedProduct === 'Capsule Pet Travel Backpack'}
-                                                    onChange={(e) => setSelectedProduct(e.target.value)}
-                                                    value="Capsule Pet Travel Backpack" />
-                                                Capsule Pet Travel Backpack
-                                            </label>
-                                        </td>
-                                        <td>59.00</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Drool'd</td>
-                                        <td>
-                                            <label for="droolProduct">
-                                                <input type="radio" id="droolProduct" name="product"
-                                                    checked={selectedProduct === 'Cat Hamster Wheel'}
-                                                    onChange={(e) => setSelectedProduct(e.target.value)}
-                                                    value="Cat Hamster Wheel" />
-                                                Cat Hamster Wheel
-                                            </label>
-                                        </td>
-                                        <td>349.75</td>
-                                    </tr>
+                                    {
+                                        products.map((product, index) => (
+                                            <ProductRow product={product} key={index} index={index} />
+                                        ))
+                                    }
                                 </tbody>
                             </table>
-
-                            <label for="amount">Please enter a quantity between 1 and 35:</label>
-                           <ProductQuantity />
-                           
-
-                            <p>Click submit when ready to place the order.</p>
-                            <label for="submit">
-                                <button type="submit" id="submit" name="submission">Submit Order</button>
-                            </label>
-
                         </fieldset>
                     </form>
                 </article>

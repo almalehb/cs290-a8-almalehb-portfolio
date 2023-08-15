@@ -517,6 +517,10 @@ object {}
   height: 40px
 }
 
+#productTable { 
+  text-align: center;
+}
+
 #chargingSessionsTable { 
   border: 2px dotted var(--medium-border-color);
   border-radius: 10px;

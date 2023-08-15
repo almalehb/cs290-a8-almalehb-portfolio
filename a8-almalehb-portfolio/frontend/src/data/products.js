@@ -9,12 +9,5 @@ const products = [
     { company: 'Drool\'d', product: 'Cat Hamster Wheel', price: 349.75 }
 ];
 
-// Allow exporting of the object to other functions:
-module.exports.products = products;
-
-
-// Display the object in a table in the terminal console to confirm it works:
-// https://developer.mozilla.org/en-US/docs/Web/API/Console/table
-console.table(products); 
-
+export default products;
  

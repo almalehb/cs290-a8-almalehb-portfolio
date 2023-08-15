@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { FaAngleUp, FaAngleDown } from "react-icons/fa6";
 
-function ProductQuantity() {
-
-    const [quantity, setQuantity] = useState(0);
+function ProductQuantity({ quantity, setQuantity }) {
 
     const increaseQuantity = () => {
         setQuantity(quantity + 1);

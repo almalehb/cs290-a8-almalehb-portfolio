@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import ProductQuantity from './ProductQuantity';
 
-function ProductRow({ product, index }) {
+function ProductRow({ product, index, selectedProduct, setSelectedProduct }) {
 
     const identifier = `product-${index}`;
 
+    const [quantity, setQuantity] = useState(0);
+
     return (
-        <div>
-            <tr>
-                <td>{product.company}</td>
-                <td>
-                    <label for={identifier}>
-                        <input type="radio" id={identifier} name="product" required
-                            checked={selectedProduct === products.product}
-                            onChange={(e) => setSelectedProduct(e.target.value)}
-                            value={product.product} />
-                        {product.product}
-                    </label>
-                </td>
-                <td>{product.price.toLocaleString()}</td>
-                <td><ProductQuantity /></td>
-            </tr>
-        </div>
+        <tr>
+            <td><strong>{product.company}</strong></td>
+            <td>
+                <p>{product.product}</p>
+            </td>
+            <td>${product.price.toLocaleString()}</td>
+            <td>{quantity}</td>
+            <td><ProductQuantity quantity={quantity} setQuantity={setQuantity} /></td>
+        </tr>
     );
 }
 
