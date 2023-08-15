@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 function OrderPage() {
 
+    const [selectedProduct, setSelectedProduct] = useState('Spinning Cat Scratcher Ball');
+
     useEffect(() => {
     }, []);
 
@@ -15,26 +17,6 @@ function OrderPage() {
                     <p>Please fill out your details below.</p>
 
                     <form action="/orderResults" method="POST">
-
-                        <fieldset>
-                            <legend>Your contact information.</legend>
-
-                            <label for="fullName" class="required">Your first and last name </label>
-                            <input type="text" name="fullName" id="fullName" size="35" required
-                                placeholder="Please enter your first and last name." autofocus />
-
-                            <label for="email" class="required">Email </label>
-                            <input type="email" name="email" id="email" size="35" required
-                                placeholder="Please enter your email address." />
-
-                            <label for="address" class="required">Address </label>
-                            <input type="text" name="address" id="address" size="35" required
-                                placeholder="Address, city, state, zip code." />
-
-                            <label for="instructions" class="required">Delivery Instructions </label>
-                            <textarea name="instructions" minlength="3" maxlength="500" required
-                                placeholder="Please enter any special instructions here."></textarea>
-                        </fieldset>
 
 
                         <fieldset>
@@ -53,9 +35,11 @@ function OrderPage() {
                                         <td>AGYM</td>
                                         <td>
                                             <label for="agymProduct">
-                                                <input type="radio" id="agymProduct" name="product" required checked
+                                                <input type="radio" id="agymProduct" name="product" required
+                                                    checked={selectedProduct === 'Spinning Cat Scratcher Ball'}
+                                                    onChange={(e) => setSelectedProduct(e.target.value)}
                                                     value="Spinning Cat Scratcher Ball" />
-                                                    Spinning Cat Scratcher Ball
+                                                Spinning Cat Scratcher Ball
                                             </label>
                                         </td>
                                         <td>52.99</td>
@@ -66,8 +50,10 @@ function OrderPage() {
                                         <td>
                                             <label for="jasonProduct">
                                                 <input type="radio" id="jasonProduct" name="product"
+                                                    checked={selectedProduct === 'Foldable Dog Pool'}
+                                                    onChange={(e) => setSelectedProduct(e.target.value)}
                                                     value="Foldable Dog Pool" />
-                                                    Foldable Dog Pool
+                                                Foldable Dog Pool
                                             </label>
                                         </td>
                                         <td>27.25</td>
@@ -78,8 +64,10 @@ function OrderPage() {
                                         <td>
                                             <label for="expawProduct">
                                                 <input type="radio" id="expawProduct" name="product"
+                                                    checked={selectedProduct === 'Dog Fence Window'}
+                                                    onChange={(e) => setSelectedProduct(e.target.value)}
                                                     value="Dog Fence Window" />
-                                                    Dog Fence Window
+                                                Dog Fence Window
                                             </label>
                                         </td>
                                         <td>30.50</td>
@@ -90,8 +78,10 @@ function OrderPage() {
                                         <td>
                                             <label for="lolliProduct">
                                                 <input type="radio" id="lolliProduct" name="product"
+                                                    checked={selectedProduct === 'Capsule Pet Travel Backpack'}
+                                                    onChange={(e) => setSelectedProduct(e.target.value)}
                                                     value="Capsule Pet Travel Backpack" />
-                                                    Capsule Pet Travel Backpack
+                                                Capsule Pet Travel Backpack
                                             </label>
                                         </td>
                                         <td>59.00</td>
@@ -102,8 +92,10 @@ function OrderPage() {
                                         <td>
                                             <label for="droolProduct">
                                                 <input type="radio" id="droolProduct" name="product"
+                                                    checked={selectedProduct === 'Cat Hamster Wheel'}
+                                                    onChange={(e) => setSelectedProduct(e.target.value)}
                                                     value="Cat Hamster Wheel" />
-                                                    Cat Hamster Wheel
+                                                Cat Hamster Wheel
                                             </label>
                                         </td>
                                         <td>349.75</td>

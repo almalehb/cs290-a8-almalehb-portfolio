@@ -166,7 +166,7 @@ function ContactPage({ setContactForm }) {
                             <div className="improvements">
                                 <input
                                     type="checkbox"
-                                    id="Accessibility"
+                                    id="accessibility"
                                     name="improvements"
                                     value="accessibility"
                                     onChange={handleChange}
