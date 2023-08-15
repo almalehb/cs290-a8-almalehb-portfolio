@@ -56,7 +56,7 @@ export const EditChargingPageTable = ({ chargingSessionToEdit }) => {
             <article>
                 <h2>Edit a charging session</h2>
                 <p>Modify any of the properties of an existing session.</p>
-                <table id="chargingSessions">
+                <table id="chargingSessionsTable">
                     <caption>What changes would you like to make?</caption>
                     <thead>
                         <tr>
